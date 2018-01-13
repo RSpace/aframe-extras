@@ -85,7 +85,7 @@ module.exports = AFRAME.registerComponent('cube-env-map', {
 
       meshMaterials.forEach((material) => {
 
-        if (material && 'envMap' in material) return;
+        if (!material || !('envMap' in material)) return;
         if (materials.indexOf(material.name) === -1) return;
 
         if(applyMap) {
